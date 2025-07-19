@@ -1,0 +1,118 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  background: #f6f9fc;
+  color: #222;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #27ae60;
+  color: #fff;
+  padding: 1rem 2rem;
+}
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+nav a {
+  color: #fff;
+  margin-left: 2rem;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+.hero {
+  text-align: center;
+  padding: 3rem 1rem 2rem 1rem;
+  background: #e9f7ef;
+}
+.hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+.hero input {
+  margin-top: 1rem;
+  padding: 0.6rem;
+  width: 250px;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+}
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+}
+h2 {
+  color: #27ae60;
+  margin-bottom: 1.2rem;
+}
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: flex-start;
+}
+.product {
+  background: #fafafc;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 200px;
+  box-shadow: 2px 2px 8px #eee;
+  text-align: center;
+}
+.product img {
+  width: 120px;
+  height: 140px;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+.product h3 {
+  margin: 0.4rem 0;
+}
+.product button {
+  padding: 0.5rem 1.2rem;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.product button:hover {
+  background: #219150;
+}
+footer {
+  margin-top: 3rem;
+  padding: 2rem;
+  text-align: center;
+  background: #222;
+  color: #ccc;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.5);
+}
+.modal-content {
+  background: #fff;
+  margin: 7% auto;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 350px;
+  max-width: 90vw;
+  position: relative;
+}
+.close {
+  position: absolute; top: 1rem; right: 1rem;
+  cursor: pointer; font-size: 1.5rem;
+}
+@media (max-width: 600px) {
+  .product-list { flex-direction: column; align-items: center; }
+  main { padding: 1rem; }
+}
