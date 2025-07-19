@@ -1,1 +1,100 @@
-# demo
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediQuick | Online Pharmacy</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo">MediQuick</div>
+    <nav>
+      <a href="#products">Medicines</a>
+      <a href="#contact">Contact</a>
+      <a href="#cart" id="cart-link">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Order Medicines Online, Fast & Easy</h1>
+    <p>Wide range | Fast Delivery | Trusted Brands</p>
+    <input type="text" placeholder="Search medicines..." id="search-bar">
+  </section>
+
+  <main>
+    <h2 id="products">Featured Medicines</h2>
+    <div class="product-list">
+      <div class="product">
+        <img src="https://via.placeholder.com/120x140?text=Paracetamol" alt="Paracetamol">
+        <h3>Paracetamol 500mg</h3>
+        <p>₹40 per strip</p>
+        <button onclick="addToCart('Paracetamol 500mg')">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="https://via.placeholder.com/120x140?text=Amoxicillin" alt="Amoxicillin">
+        <h3>Amoxicillin 250mg</h3>
+        <p>₹120 per strip</p>
+        <button onclick="addToCart('Amoxicillin 250mg')">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="https://via.placeholder.com/120x140?text=Vitamin+D" alt="Vitamin D">
+        <h3>Vitamin D3 60k</h3>
+        <p>₹75 per bottle</p>
+        <button onclick="addToCart('Vitamin D3 60k')">Add to Cart</button>
+      </div>
+      <!-- Add more medicines here -->
+    </div>
+
+    <div id="cart-modal" class="modal">
+      <div class="modal-content">
+        <span onclick="closeCart()" class="close">&times;</span>
+        <h2>Your Cart</h2>
+        <ul id="cart-items"></ul>
+        <button onclick="checkout()">Checkout</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Email: care@mediquick.com</p>
+      <p>Phone: 1800-123-456</p>
+    </section>
+    <p>&copy; 2025 MediQuick. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Basic cart functionality
+    let cart = {};
+    function addToCart(product) {
+      cart[product] = (cart[product] || 0) + 1;
+      updateCartCount();
+    }
+    function updateCartCount() {
+      document.getElementById('cart-count').innerText = Object.values(cart).reduce((a, b) => a + b, 0);
+    }
+    document.getElementById('cart-link').onclick = function(e) {
+      e.preventDefault();
+      showCart();
+    };
+    function showCart() {
+      document.getElementById('cart-modal').style.display = 'block';
+      let list = document.getElementById('cart-items');
+      list.innerHTML = '';
+      for (let item in cart) {
+        let li = document.createElement('li');
+        li.innerText = `${item} x${cart[item]}`;
+        list.appendChild(li);
+      }
+    }
+    function closeCart() {
+      document.getElementById('cart-modal').style.display = 'none';
+    }
+    function checkout() {
+      alert("Checkout coming soon!");
+    }
+  </script>
+</body>
+</html>
